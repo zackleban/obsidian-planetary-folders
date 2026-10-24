@@ -4,8 +4,8 @@ Turns the graph view into a solar system of folders. A planet button (an orbit) 
 under 3D Animation with Toggle's 2D/3D toggle when that plugin is on, else under the timelapse wand. Turn it on and
 every folder becomes a planet:
 
-- **Closed**, a planet is a faceted purple rock (after Obsidian's logo) with a drop-down label above it: a chevron,
-  the rock, the folder's name and how many notes it holds.
+- **Closed**, a planet is a faceted purple rock (modelled after Obsidian's logo) with a drop-down label above it: a
+  chevron, the Obsidian logo, the folder's name and how many notes it holds.
 - **Click the rock or its label** and the planet opens: its notes come out of the rock as their own constellation,
   linked notes close together, each planet in its own colour. Click again and they fold back in.
 - **Planets never touch or connect.** Only links inside a planet are drawn. An opening planet pushes the others back
@@ -42,3 +42,10 @@ npm run build
 ```
 
 `npm run dev` rebuilds on every save. Built with three.js and d3-force-3d (both MIT).
+
+## The Obsidian logo
+
+The Obsidian name and logo are trademarks of Obsidian. The labels show the logo exactly as published at
+[obsidian.md/brand](https://obsidian.md/brand) (`src/obsidian-logo-gradient.svg`), unedited and never recoloured, only
+scaled down. This plugin is free and is not made by or affiliated with Obsidian. The 3D rocks are this plugin's own
+model, not the logo.

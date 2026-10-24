@@ -94,8 +94,11 @@ body {
 	height: 14px;
 }
 
-.planetary-rock {
-	display: flex;
+/* Obsidian's logo, scaled down whole: never stretched or recoloured. */
+.planetary-logo {
+	width: 14px;
+	height: 14px;
+	object-fit: contain;
 }
 
 .planetary-count {

@@ -1,7 +1,8 @@
 import * as THREE from "three";
 import { ConvexGeometry } from "three/examples/jsm/geometries/ConvexGeometry.js";
+import logo from "./obsidian-logo-gradient.svg";
 
-// Obsidian's purple, for the rock and its label. Drawn here after the app's logo, not copied from it.
+// Obsidian's purple, for the 3D rock, which is drawn here after the app's logo (the labels show the logo itself).
 export const ROCK_PURPLE = "#6c31e3";
 
 // A tall, lopsided crystal about two units high: the corners of a faceted purple rock.
@@ -33,9 +34,5 @@ export function rockMaterial() {
 	});
 }
 
-// The same rock, flat, for the drop-down labels: three facets in three purples.
-export const ROCK_ICON = `<svg viewBox="0 0 16 20" width="12" height="15" aria-hidden="true">
-<path d="M8.6 0.5 L14 7.2 L11.6 19.4 L5.2 17.8 L2.2 7.6 Z" fill="${ROCK_PURPLE}"/>
-<path d="M8.6 0.5 L9.8 8.4 L11.6 19.4 L14 7.2 Z" fill="#a88bfa"/>
-<path d="M8.6 0.5 L2.2 7.6 L9.8 8.4 Z" fill="#8b5cf6"/>
-</svg>`;
+// Obsidian's logo for the drop-down labels, unmodified, from obsidian.md/brand. Shown as an image, never edited.
+export const LOGO_URL = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(logo)}`;

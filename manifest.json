@@ -1,9 +1,9 @@
 {
 	"id": "planetary-folders",
 	"name": "Planetary Folders",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"minAppVersion": "1.6.0",
-	"description": "Adds a planet button to the graph view. Each folder becomes a planet: a purple rock with a drop-down label. Click it to open its notes as their own constellation, and again to fold them away. Planets never touch or connect. Drag to turn, double-click to zoom, press and hold to slide the view, and hold both mouse buttons on a planet to carry it somewhere else.",
+	"description": "Adds a planet button to the graph view. Each folder becomes a planet: a purple rock with a drop-down label marked with the Obsidian logo. Click it to open its notes as their own constellation, and again to fold them away. Planets never touch or connect. Drag to turn, double-click to zoom, press and hold to slide the view, and hold both mouse buttons on a planet to carry it somewhere else.",
 	"author": "Zack",
 	"isDesktopOnly": true
 }

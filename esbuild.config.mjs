@@ -19,6 +19,8 @@ const context = await esbuild.context({
 	sourcemap: production ? false : "inline",
 	treeShaking: true,
 	outfile: "main.js",
+	// The Obsidian logo ships inside main.js as text, exactly as Obsidian publishes it.
+	loader: { ".svg": "text" },
 });
 
 if (production) {

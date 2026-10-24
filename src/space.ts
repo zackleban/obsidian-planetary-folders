@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { TrackballControls } from "three/examples/jsm/controls/TrackballControls.js";
 import { forceLink, forceManyBody, forceSimulation, forceX, forceY, forceZ } from "d3-force-3d";
 import type { PlanetData } from "./folders";
-import { ROCK_ICON, rockGeometry, rockMaterial } from "./rock";
+import { LOGO_URL, rockGeometry, rockMaterial } from "./rock";
 
 // One star colour per planet, in order; past the end they repeat. Same set as 3D Animation with Toggle.
 const PALETTE = ["#8b5cf6", "#14b8a6", "#f59e0b", "#ec4899", "#3b82f6", "#84cc16", "#ef4444", "#06b6d4", "#a855f7", "#f97316"];
@@ -303,7 +303,7 @@ export class PlanetSpace {
 	private makeLabel(d: PlanetData) {
 		const label = this.labelsEl.createDiv("planetary-label");
 		label.createSpan("planetary-chevron");
-		label.createSpan("planetary-rock").innerHTML = ROCK_ICON;
+		label.createEl("img", { cls: "planetary-logo", attr: { src: LOGO_URL, alt: "", draggable: "false" } });
 		label.createSpan({ cls: "planetary-name", text: d.name });
 		label.createSpan({ cls: "planetary-count", text: `${d.stars.length}` });
 		label.addEventListener("click", () => this.toggle(d.key));
