@@ -31807,7 +31807,7 @@ var PlanetSpace = class {
     for (let t = 0; t < 200; t++) this.spread(1);
   }
   reach(p) {
-    return Math.max(p.rockR * 2.5, ease(p.openness) * p.openR);
+    return Math.max(p.rockR * 3.5, ease(p.openness) * p.openR);
   }
   // Pushes overlapping planets apart, a share `rate` of the overlap at a time. A carried planet never gives way.
   spread(rate) {
@@ -32086,13 +32086,13 @@ var PlanetSpace = class {
     this.camera.position.add(shift);
     this.controls.target.add(shift);
   }
-  // Puts the camera far enough back to see every planet, open or not.
+  // Puts the camera far enough back to see every planet as it is now: a closed one by its rock, an open one by its stars.
   frameAll() {
     if (this.planets.length === 0) return;
     const centre = new Vector3();
     for (const p of this.planets) centre.add(p.center);
     centre.divideScalar(this.planets.length);
-    const reach = this.planets.reduce((m2, p) => Math.max(m2, p.center.distanceTo(centre) + Math.max(p.openR, p.rockR)), 40);
+    const reach = this.planets.reduce((m2, p) => Math.max(m2, p.center.distanceTo(centre) + this.reach(p)), 40);
     const fov2 = MathUtils.degToRad(this.camera.fov) / 2;
     const dist = reach * 1.15 / Math.sin(Math.min(fov2, Math.atan(Math.tan(fov2) * this.camera.aspect)));
     this.controls.target.copy(centre);

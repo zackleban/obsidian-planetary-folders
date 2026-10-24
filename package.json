@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-planetary-folders",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "In the graph view, turns each folder into a planet: a purple rock you click to open its notes as their own constellation, apart from every other.",
 	"main": "main.js",
 	"private": true,

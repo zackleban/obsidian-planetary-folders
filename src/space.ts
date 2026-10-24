@@ -223,7 +223,7 @@ export class PlanetSpace {
 
 	private reach(p: Planet) {
 		// Closed, a planet keeps room for its label too.
-		return Math.max(p.rockR * 2.5, ease(p.openness) * p.openR);
+		return Math.max(p.rockR * 3.5, ease(p.openness) * p.openR);
 	}
 
 	// Pushes overlapping planets apart, a share `rate` of the overlap at a time. A carried planet never gives way.
@@ -544,13 +544,13 @@ export class PlanetSpace {
 		this.controls.target.add(shift);
 	}
 
-	// Puts the camera far enough back to see every planet, open or not.
+	// Puts the camera far enough back to see every planet as it is now: a closed one by its rock, an open one by its stars.
 	private frameAll() {
 		if (this.planets.length === 0) return;
 		const centre = new THREE.Vector3();
 		for (const p of this.planets) centre.add(p.center);
 		centre.divideScalar(this.planets.length);
-		const reach = this.planets.reduce((m, p) => Math.max(m, p.center.distanceTo(centre) + Math.max(p.openR, p.rockR)), 40);
+		const reach = this.planets.reduce((m, p) => Math.max(m, p.center.distanceTo(centre) + this.reach(p)), 40);
 		const fov = THREE.MathUtils.degToRad(this.camera.fov) / 2;
 		const dist = (reach * 1.15) / Math.sin(Math.min(fov, Math.atan(Math.tan(fov) * this.camera.aspect)));
 		this.controls.target.copy(centre);
