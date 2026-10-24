@@ -1,0 +1,123 @@
+/*
+ * Planetary Folders. The planet button sits in the graph's controls column and shows while the settings panel is
+ * closed, like the timelapse wand. The planets cover the graph (2D or 3D); the controls stay on top.
+ */
+body {
+	--planetary-accent: #6c31e3;
+}
+
+.graph-controls-button.mod-planetary {
+	margin-top: var(--size-4-1);
+}
+
+.graph-controls.is-close .graph-controls-button.mod-planetary {
+	display: flex;
+}
+
+.graph-controls-button.mod-planetary.is-active {
+	color: var(--planetary-accent);
+}
+
+.planetary-overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	background: var(--background-primary);
+	overflow: hidden;
+}
+
+.workspace-split:not(.mod-root) .planetary-overlay {
+	background: var(--background-secondary);
+}
+
+.view-content:has(> .planetary-overlay) > .graph-controls {
+	z-index: 3;
+}
+
+.planetary-canvas,
+.planetary-canvas canvas {
+	position: absolute;
+	inset: 0;
+}
+
+/* Carrying a planet, or holding the whole view: the pointer is a closed hand. */
+.planetary-overlay.is-grabbing canvas {
+	cursor: grabbing !important;
+}
+
+.planetary-labels {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+
+/* A drop-down folder row floating over its rock: chevron, rock, name, note count. */
+.planetary-label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	padding: 2px 8px 2px 4px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	background: var(--background-primary);
+	color: var(--text-normal);
+	font-size: var(--font-ui-small);
+	white-space: nowrap;
+	box-shadow: var(--shadow-s);
+	cursor: pointer;
+	pointer-events: auto;
+	user-select: none;
+}
+
+.planetary-label:hover {
+	background: var(--background-modifier-hover);
+}
+
+.planetary-label.is-hidden {
+	display: none;
+}
+
+.planetary-label.is-open {
+	border-color: var(--planetary-accent);
+}
+
+.planetary-chevron {
+	display: flex;
+	color: var(--text-muted);
+}
+
+.planetary-chevron svg {
+	width: 14px;
+	height: 14px;
+}
+
+.planetary-rock {
+	display: flex;
+}
+
+.planetary-count {
+	color: var(--text-faint);
+	font-size: var(--font-ui-smaller);
+	font-variant-numeric: tabular-nums;
+}
+
+.planetary-tip {
+	position: absolute;
+	display: none;
+	padding: 4px 8px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	background: var(--background-primary);
+	color: var(--text-normal);
+	font-size: var(--font-ui-smaller);
+	box-shadow: var(--shadow-s);
+	pointer-events: none;
+	white-space: nowrap;
+}
+
+.planetary-tip.is-shown {
+	display: block;
+}
